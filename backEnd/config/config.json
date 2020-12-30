@@ -1,26 +1,26 @@
 {
   "development": {
-    "username": "root",
-    "password": null,
-    "database": "database_development",
+    "username": "tothetrees",
+    "password": "nelsoninc",
+    "database": "treehouse_development",
     "host": "127.0.0.1",
-    "dialect": "mysql",
-    "operatorsAliases": false
+    "dialect": "postgres",
+    "seederStorage": "sequelize"
   },
   "test": {
-    "username": "root",
-    "password": null,
-    "database": "database_test",
+    "username": "tothetrees",
+    "password": "nelsoninc",
+    "database": "treehouse_test",
     "host": "127.0.0.1",
-    "dialect": "mysql",
-    "operatorsAliases": false
+    "dialect": "postgres",
+    "seederStorage": "sequelize"
   },
   "production": {
-    "username": "root",
-    "password": null,
-    "database": "database_production",
+    "username": "tothetrees",
+    "password": "nelsoninc",
+    "database": "treehouse_production",
     "host": "127.0.0.1",
-    "dialect": "mysql",
-    "operatorsAliases": false
+    "dialect": "postgres",
+    "seederStorage": "sequelize"
   }
 }
