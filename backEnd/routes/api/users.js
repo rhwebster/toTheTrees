@@ -1,11 +1,10 @@
 const express = require('express');
 const asyncHandler = require('express-async-handler');
-const { check, validationResult } = require('express-validator');
+const { check } = require('express-validator');
 const { handleValidationErrors } = require('../../utils/validation');
 const { setTokenCookie, requireAuth } = require('../../utils/auth');
 const { User } = require('../../db/models');
-const bcrypt = require("bcryptjs")
-const { decodeBase64 } = require("bcryptjs");
+
 
 const router = express.Router();
 
@@ -45,6 +44,7 @@ const userValidators = [
             }
             return true;
         }),
+    handleValidationErrors,
 ];
 
 router.post('', userValidators, asyncHandler(async (req, res) => {
