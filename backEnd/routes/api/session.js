@@ -7,7 +7,7 @@ const { User } = require('../../db/models');
 
 const router = express.Router();
 
-const loginValidation = [
+const validateLogin = [
     check('email')
         .exists({ checkFalsy: true })
         .notEmpty()
@@ -18,7 +18,7 @@ const loginValidation = [
     handleValidationErrors,
 ];
 
-router.post('/', loginValidation, asyncHandler(async (req, res, next) => {
+router.post('/', validateLogin, asyncHandler(async (req, res, next) => {
     const { email, password } = req.body;
 
     const user = await User.login({ email, password });
