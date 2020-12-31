@@ -21,8 +21,16 @@ function App() {
                     <Route path="/signup">
                         <SignupPage />
                     </Route>
+                    <Route path="/" exact>
+                        <HomePage />
+                    </Route>
+                    <Route path="/listings">
+                        <Listings />
+                    </Route>
                 </Switch>
             )}
         </>
     );
 }
+
+export default App;
