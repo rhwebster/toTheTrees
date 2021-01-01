@@ -14,7 +14,7 @@ const ListingsPage = () => {
             <h2>Your oasis awaits</h2>
             {!listings && <h3>Taking you to the trees...</h3>}
             {listings && listings.map((listing) => {
-                return <h3>{listing.name}</h3>;
+                return <h3>{listing.name}</h3>
             })};
         </div>
     );
