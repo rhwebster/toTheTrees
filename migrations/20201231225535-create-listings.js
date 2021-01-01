@@ -24,11 +24,11 @@ module.exports = {
         allowNull: false,
       },
       latitude: {
-        type: Sequelize.FLOAT(6,2),
+        type: Sequelize.FLOAT(10,6),
         allowNull: false,
       },
       longitude: {
-        type: Sequelize.FLOAT(6,2),
+        type: Sequelize.FLOAT(10,6),
         allowNull: false,
       },
       ownerId: {
