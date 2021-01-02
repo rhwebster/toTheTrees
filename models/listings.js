@@ -1,6 +1,6 @@
 'use strict';
 
-const { default: ListingsPage } = require("../../../frontEnd/src/components/ListingsPage");
+const { default: ListingsPage } = require("../frontEnd/src/components/ListingsPage");
 
 module.exports = (sequelize, DataTypes) => {
   const listings = sequelize.define('Listings', {
