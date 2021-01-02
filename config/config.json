@@ -1,24 +1,24 @@
 {
   "development": {
-    "username": "tothetreesapp",
-    "password": "treehousemaster",
-    "database": "tothetreesapp_development",
+    "username": "tothetrees",
+    "password": "master",
+    "database": "tothetrees_app_development",
     "host": "127.0.0.1",
     "dialect": "postgres",
     "seederStorage": "sequelize"
   },
   "test": {
-    "username": "tothetreesapp",
-    "password": "treehousemaster",
-    "database": "tothetreesapp_test",
+    "username": "tothetrees",
+    "password": "master",
+    "database": "tothetrees_app_test",
     "host": "127.0.0.1",
     "dialect": "postgres",
     "seederStorage": "sequelize"
   },
   "production": {
-    "username": "tothetreesapp",
-    "password": "treehousemaster",
-    "database": "tothetreesapp_production",
+    "username": "tothetrees",
+    "password": "master",
+    "database": "tothetrees_app_production",
     "host": "127.0.0.1",
     "dialect": "postgres",
     "seederStorage": "sequelize"

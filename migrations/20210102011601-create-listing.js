@@ -31,12 +31,17 @@ module.exports = {
         type: Sequelize.FLOAT(10,6),
         allowNull: false,
       },
+      picUrl: {
+        type: Sequelize.STRING,
+        allowNull: true,
+      },
       ownerId: {
         type: Sequelize.INTEGER,
         allowNull: false,
-        references: { 
-          model: "Users", 
-          key: "id" },
+        references: {
+          model: "Users",
+          key: "id"
+        },
       },
       description: {
         type: Sequelize.TEXT

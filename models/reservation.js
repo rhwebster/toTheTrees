@@ -1,9 +1,6 @@
 'use strict';
-
-const { default: ReservationsReducer } = require("../../../frontEnd/src/store/reservations");
-
 module.exports = (sequelize, DataTypes) => {
-  const reservations = sequelize.define('Reservations', {
+  const Reservation = sequelize.define('Reservation', {
     startDate: {
       type: DataTypes.DATE,
       allowNull: false,
@@ -25,9 +22,9 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
     },
   }, {});
-  reservations.associate = function(models) {
+  Reservation.associate = function(models) {
     Reservation.belongsTo(models.User, { foreignKey: "guestId" });
     Reservation.belongsTo(models.Listing, { foreignKey: "listingId" });
   };
-  return Reservations;
+  return Reservation;
 };

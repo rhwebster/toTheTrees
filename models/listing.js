@@ -1,9 +1,6 @@
 'use strict';
-
-const { default: ListingsPage } = require("../frontEnd/src/components/ListingsPage");
-
 module.exports = (sequelize, DataTypes) => {
-  const listings = sequelize.define('Listings', {
+  const Listing = sequelize.define('Listing', {
     name: {
       type: DataTypes.STRING(50),
       allowNull: false,
@@ -27,6 +24,10 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.FLOAT(10,6),
       allowNull: false,
     },
+    picUrl: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
     ownerId: {
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -44,11 +45,11 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
     },
   }, {});
-  listings.associate = function(models) {
+  Listing.associate = function(models) {
     Listing.belongsTo(models.User, { foreignKey: "userId" });
     Listing.hasMany(models.Reservation, { foreignKey: "listingId" });
     Listing.hasMany(models.TreehouseReview, { foreignKey: "listingId" });
     Listing.belongsToMany(models.Favorite, { through: "Favorite", foreignKey: "listingId", otherKey: "userId" });
   };
-  return Listings;
+  return Listing;
 };

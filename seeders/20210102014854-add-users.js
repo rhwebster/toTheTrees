@@ -12,7 +12,7 @@ module.exports = {
         address3: 'New York, NY 10028',
         email: 'barney@awesome.com',
         hashedPassword: await bcrypt.hash('suitup', 10),
-        createdAt: new Date(), 
+        createdAt: new Date(),
         updatedAt: new Date()
       },
       {
@@ -100,10 +100,10 @@ module.exports = {
       },
       {
         firstName: 'Michael',
-        lastName: 'Scott', 
-        address1: '1128 Lafayette St', 
+        lastName: 'Scott',
+        address1: '1128 Lafayette St',
         address3: 'Scranton, PA, 18504',
-        email: 'mscott@dundermifflin.com', 
+        email: 'mscott@dundermifflin.com',
         hashedPassword: await bcrypt.hash('password', 10),
         createdAt: new Date(),
         updatedAt: new Date()
@@ -116,10 +116,10 @@ module.exports = {
         email: 'pete@nelson.inc',
         hashedPassword: await bcrypt.hash('treehousepoint', 10),
         createdAt: new Date(),
-        updatedAt: new Date() },
+        updatedAt: new Date()
+      },
     ]);
   },
-
 
   down: (queryInterface, Sequelize) => {
     /*
@@ -127,7 +127,8 @@ module.exports = {
       Return a promise to correctly handle asynchronicity.
 
       Example:
-      */
-   return queryInterface.bulkDelete('Users', null, {});
+      return queryInterface.bulkDelete('People', null, {});
+    */
+    return queryInterface.bulkDelete('Users', null, {});
   }
 };
