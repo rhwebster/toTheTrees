@@ -1,12 +1,12 @@
 const express = require("express");
 const asyncHandler = require ('express-async-handler');
 const { restoreUser } = require('../../utils/auth');
-const db = require('../../../models');
+const db = require('../../db/models');
 const { Op } = require('sequelize');
 
 const router = express.Router();
 
-const { Listing } = require('../../../models');
+const { Listing } = require('../../db/models');
 
 router.get("/", async (req, res) => {
     try {
