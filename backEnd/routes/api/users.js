@@ -21,9 +21,8 @@ const validateSignup = [
         .withMessage("Last Name must not exceed 50 Characters"),
     check("email")
         .exists({ checkFalsy: true })
-        .withMessage("Please provide valid email address")
         .isEmail()
-        .withMessage("Invalid email address")
+        .withMessage("Please provide valid email address")
         .custom((value) => {
             return db.User.findOne({ where: { email: value } }).then((user) => {
                 if (user) {
@@ -33,6 +32,12 @@ const validateSignup = [
                 }
             });
         }),
+    check("username")
+        .exists({ checkFalsy: true })
+        .isLength({ min: 4 })
+        .withMessage("Please provide a username with at least 4 characters."),
+    check("username").not().isEmail()
+        .withMessage("Username cannot be email."),
     check("password")
         .exists({ checkFalsy: true })
         .withMessage("Please enter a password")
@@ -47,15 +52,20 @@ const validateSignup = [
     handleValidationErrors,
 ];
 
-router.post('', validateSignup, asyncHandler(async (req, res) => {
-    const { firstName, lastName, email, password } = req.body;
-    const user = await User.signup({ firstName, lastName, email, password })
+router.post('/', validateSignup, asyncHandler(async (req, res) => {
+    const { firstName, lastName, email, username, password } = req.body;
+    const user = await User.signup({ firstName, lastName, email, username, password })
 
     await setTokenCookie(res, user);
 
     return res.json({
         user,
     });
+}));
+
+router.get('/all', asyncHandler(async (req, res) => {
+    const allUsers = await User.findAll();
+    return res.json(allUsers);
 }));
 
 module.exports = router;
