@@ -26,6 +26,16 @@ app.use(helmet({
 
 app.use(routes);
 
+app.use(
+    csurf({
+        cookie: {
+            secure: isProduction,
+            sameSite: isProduction && 'Lax',
+            httpOnly: true,
+        },
+    })
+);
+
 // Catch unhandled requests and forward to error handler.
 app.use((_req, _res, next) => {
     const err = new Error("The requested resource couldn't be found.");
