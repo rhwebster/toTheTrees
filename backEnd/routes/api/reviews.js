@@ -92,3 +92,5 @@ router.get('/rating/:listingId', asyncHandler(async (req, res) => {
                 + (4 * fourStar) + (5 * fiveStar)) / reviews.length);
     return res.json({ avgRating: avgRating.toFixed(1), length : reviews.length, listingId });
 }));
+
+module.exports = router;
