@@ -5,22 +5,23 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING(50),
       allowNull: false,
     },
-    address1: {
+    address: {
       type: DataTypes.STRING(100),
       allowNull: false,
     },
-    address2: {
-      type: DataTypes.STRING(100),
-    },
-    address3: {
+    city: {
       type: DataTypes.STRING(100),
       allowNull: false,
     },
-    latitude: {
+    state: {
+      type: DataTypes.STRING(100),
+      allowNull: false,
+    },
+    lat: {
       type: DataTypes.FLOAT(10,6),
       allowNull: false,
     },
-    longitude: {
+    lon: {
       type: DataTypes.FLOAT(10,6),
       allowNull: false,
     },
@@ -46,6 +47,11 @@ module.exports = (sequelize, DataTypes) => {
     },
   }, {});
   Listing.associate = function(models) {
+    const columnMapping = {
+      foreignKey: "listingId",
+      through: "Reservation",
+      otherKey: "user"
+    }
     Listing.belongsTo(models.User, { foreignKey: "userId" });
     Listing.hasMany(models.Reservation, { foreignKey: "listingId" });
     Listing.hasMany(models.TreehouseReview, { foreignKey: "listingId" });
